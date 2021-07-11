@@ -1,4 +1,4 @@
-import react, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 import questions from "./questions.json"
 import './App.css';
 import Score from "./components/Score"
@@ -51,9 +51,13 @@ const restartGame = () => {
     </>
   );
   }
-  else{
+  else if(score && gameOver){
     return(
       <GameOver setGameOver = {setGameOver} score = {score} restartGame = {restartGame}/>
+    )
+  } else {
+    return(
+      <button onClick = {restartGame}>Play Game</button>
     )
   }
 }
