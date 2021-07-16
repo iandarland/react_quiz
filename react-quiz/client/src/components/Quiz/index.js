@@ -29,10 +29,7 @@ function Quiz (props){
                 <img src = {props.question.img}/>
             </div>
             <div>
-                <button value = {answers[0]} onClick = {props.handleBtnClick}>{answers[0]}</button>
-                <button value = {answers[1]} onClick = {props.handleBtnClick}>{answers[1]}</button>
-                <button value = {answers[2]} onClick = {props.handleBtnClick}>{answers[2]}</button>
-                <button value = {answers[3]} onClick = {props.handleBtnClick}>{answers[3]}</button>
+                {answers.map(answer => (<button className ="btn btn-success" value = {answer} onClick = {props.handleBtnClick}>{answer}</button>))}
             </div>
         </div>
     )
