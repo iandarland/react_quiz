@@ -25,10 +25,10 @@ function Quiz (props){
 
     return(
         <div>
-            <div>
+            <div className="text-center">
                 <img src = {props.question.img}/>
             </div>
-            <div>
+            <div className="text-center">
                 {answers.map(answer => (<button className ="btn btn-success" value = {answer} onClick = {props.handleBtnClick}>{answer}</button>))}
             </div>
         </div>
