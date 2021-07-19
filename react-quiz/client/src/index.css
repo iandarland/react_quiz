@@ -15,4 +15,5 @@ code {
 body {
   background-image: url("./assets/south_park.png") ;
   background-color: #cccccc;
+  background-size: cover;
  }
