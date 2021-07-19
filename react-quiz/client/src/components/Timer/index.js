@@ -6,7 +6,7 @@ function Timer(props) {
     setTimeout(function(){
         props.setTime(props.time -1)
         if(props.time < 1){
-            props.setGameOver(true)
+            props.setGameOver("over")
         }
     }, 1000);
 

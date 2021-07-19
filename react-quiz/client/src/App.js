@@ -18,7 +18,7 @@ const [question, setQuestion] = useState({
   index: 0
 })
 const [score, setScore] = useState(0)
-const [gameOver, setGameOver] = useState(false)
+const [gameOver, setGameOver] = useState("start")
 const [time, setTime] = useState(60)
 
 
@@ -36,12 +36,12 @@ const handleBtnClick = (e) => {
 
 const restartGame = () => {
   setTime(60)
-  setGameOver(false)
+  setGameOver("play")
   setQuestion(quiz[0])
   setScore(0)
 }
 
-  if(question && !gameOver){
+  if(gameOver === "play"){
 
   return (
     <>
@@ -51,7 +51,7 @@ const restartGame = () => {
     </>
   );
   }
-  else if(score && gameOver){
+  else if(gameOver === "over"){
     return(
       <GameOver setGameOver = {setGameOver} score = {score} restartGame = {restartGame}/>
     )
