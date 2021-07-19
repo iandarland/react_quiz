@@ -76,5 +76,20 @@
         "correct" : "Timmy Burch",
         "possible" : ["Jimmy Valmer", "Tweek Tweak", "Clyde Donovan"],
         "index" : 13
+    },
+    {
+        "img": "http://southparkstudios.mtvnimages.com/shared/characters/kids/kyle-schwartz.png?height=165",
+        "correct" : "Kyle Schwartz",
+        "possible" : ["Jimmy Valmer", "Clyde Donovan", "Billy Circlovich"] 
+    },
+    {
+        "img": "http://southparkstudios.mtvnimages.com/shared/characters/adults/gerald-broflovski.png?height=165",
+        "correct" : "Gerald Broflovski",
+        "possible" : ["Randy Marsh", "Jimbo Kern", "Roger Donovan"]
+    },
+    {
+        "img" : "http://southparkstudios.mtvnimages.com/shared/characters/adults/randy-marsh.png?height=165",
+        "correct" : "Randy Marsh",
+        "possible" : ["Gerald Broflovski", "Peter Nelson", "Bradley Biggle"]
     }
 ]

@@ -5,11 +5,12 @@ import Score from "./components/Score"
 import Quiz from "./components/Quiz"
 import Timer from "./components/Timer"
 import GameOver from "./components/GameOver"
+import shuffleArray from './components/Functions';
 
 function App() {
 
 
-  const [quiz, setQuiz] = useState([])
+const [quiz, setQuiz] = useState([])
 
 const [question, setQuestion] = useState({
   possible: [],
@@ -28,15 +29,23 @@ useEffect(() => {
 },[])
 
 const handleBtnClick = (e) => {
+  e.preventDefault()
   if (e.target.value === question.correct){
     setScore(score + 1)
   }
-  setQuestion(quiz[question.index])
+  const currentIndex = questions.indexOf(question);
+  const nextIndex = (currentIndex + 1) % questions.length;
+  if(nextIndex >= quiz.length -1){
+    setGameOver("over")
+  }
+
+  setQuestion(quiz[nextIndex])
 }
 
 const restartGame = () => {
   setTime(60)
   setGameOver("play")
+  shuffleArray(quiz)
   setQuestion(quiz[0])
   setScore(0)
 }
