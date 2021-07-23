@@ -11,7 +11,7 @@ function Timer(props) {
     }, 1000);
 
     return(
-        <div className = "d-flex justify-items-center">
+        <div>
             <h3> Time Remaining: {props.time}</h3>
         </div> 
     )
