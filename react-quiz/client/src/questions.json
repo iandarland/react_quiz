@@ -91,5 +91,10 @@
         "img" : "http://southparkstudios.mtvnimages.com/shared/characters/adults/randy-marsh.png?height=165",
         "correct" : "Randy Marsh",
         "possible" : ["Gerald Broflovski", "Peter Nelson", "Bradley Biggle"]
+    },
+    {
+        "img" : "http://southparkstudios.mtvnimages.com/shared/characters/kids/scott-tenorman.png?height=165",
+        "correct" : "Scott Tenorman",
+        "possible" : ["Tad McKowski, Skylar Morse, Peter Galtman"]
     }
 ]

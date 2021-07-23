@@ -16,4 +16,27 @@ body {
   background-image: url("./assets/south_park.png") ;
   background-color: #cccccc;
   background-size: cover;
+  margin-top: auto;
+  margin-bottom: auto;
  }
+
+ .vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+  min-width: 100%;
+  min-width: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.quiz-wrap {
+  display:table;
+}
+
+.quiz-content {
+  display: table-cell;
+  vertical-align: middle; /*Vertically centered*/
+  text-align: center; /* Horizontally centered */
+}

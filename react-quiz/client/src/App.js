@@ -53,11 +53,11 @@ const restartGame = () => {
   if(gameOver === "play"){
 
   return (
-    <>
+    <div>
       <Timer setGameOver = {setGameOver} setTime = {setTime} time = {time}/>
       <Score score = {score}/>
       <Quiz handleBtnClick = {handleBtnClick} question = {question} />
-    </>
+    </div>
   );
   }
   else if(gameOver === "over"){
