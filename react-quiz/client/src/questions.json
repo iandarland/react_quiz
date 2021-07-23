@@ -95,6 +95,22 @@
     {
         "img" : "http://southparkstudios.mtvnimages.com/shared/characters/kids/scott-tenorman.png?height=165",
         "correct" : "Scott Tenorman",
-        "possible" : ["Tad McKowski, Skylar Morse, Peter Galtman"]
+        "possible" : ["Tad McKowski", "Skylar Morse", "Peter Galtman"]
+    },
+    {
+        "img" : "http://southparkstudios.mtvnimages.com/shared/characters/adults/sharon-marsh.png?height=165",
+        "correct" : "Sharon Marsh",
+        "possible" : ["Stella Broflovski", "Liane Cartman", "Mrs. Tenorman"]
+    },
+    {
+        "img" : "http://southparkstudios.mtvnimages.com/shared/characters/adults/sheila-broflovski.png?height=165",
+        "correct" : "Stella Broflovski",
+        "possible" : ["Sharon Marsh", "Liane Cartman", "Mrs. Tenorman"]
+    },
+    {
+        "img" : "http://southparkstudios.mtvnimages.com/shared/characters/adults/liane-cartman.png?height=165",
+        "correct" : "Liane Cartman",
+        "possible" : ["Sharon Marsh", "Stella Broflovski", "Mrs. Tenorman"]
     }
+
 ]
