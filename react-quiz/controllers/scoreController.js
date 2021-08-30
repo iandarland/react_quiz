@@ -4,7 +4,7 @@ module.exports = {
     create: function(req, res) {
         db.Score
           .create(req.body)
-          .then(res => res.json(res))
+          .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
       },
       findAll: function(req, res) {
