@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const scoreSchema = new Schema({
     score : Number,
-    name : String
+    userName : String
 })
 
 const Score = mongoose.model("Score", scoreSchema)
