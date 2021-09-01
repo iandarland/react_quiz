@@ -43,7 +43,7 @@ const handleBtnClick = (e) => {
 }
 
 const restartGame = () => {
-  setTime(60)
+  setTime(10)
   setGameOver("play")
   shuffleArray(quiz)
   setQuestion(quiz[0])
