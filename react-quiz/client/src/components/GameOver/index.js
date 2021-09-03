@@ -1,63 +1,91 @@
-import { get } from "mongoose"
-import React, {useState, useEffect} from "react"
-import API from "../../utils/API"
+import { get } from "mongoose";
+import React, { useState, useEffect } from "react";
+import API from "../../utils/API";
 
 function GameOver(props) {
+  const [totals, setTotals] = useState({
+    score: props.score,
+    userName: "",
+  });
+  const [allScores, setAllScores] = useState([]);
 
-    const [totals, setTotals] = useState({
-        score: props.score,
-        userName: ""
-    })
-    const [allScores, setAllScores] = useState([])
+  useEffect(() => {
+    getScores();
+  }, []);
 
-    useEffect(() =>{
-        getScores()
-    },[])
+  useEffect(() => {
+    console.log(allScores);
+  }, [allScores]);
 
-    useEffect(() => {
-        console.log(allScores)
-    },[allScores])
+  function getScores() {
+    API.getScores()
+      .then((res) => setAllScores(res.data))
+      .catch((err) => console.log(err));
+  }
 
-    function getScores(){
-        API.getScores()
-        .then(res => setAllScores(res.data))
-        .catch(err => console.log(err))
-    }
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    setTotals({ ...totals, [name]: value });
+  }
 
-    function handleInputChange(event) {
-        const { name, value } = event.target
-        setTotals({ ...totals, [name]: value })
-    }
+  function saveScore(event) {
+    event.preventDefault();
+    console.log(totals);
+    API.logScore(totals)
+      .then((document.getElementById("scoreForm").style.display = "none"))
+      .then(getScores())
+      .then((document.getElementById("scoresList").style.display = "table"))
+      .catch((err) => console.log(err));
+  }
 
-    function saveScore(event){
-        event.preventDefault()
-        console.log(totals)
-        API.logScore(totals)
-        .then(document.getElementById("scoreForm").style.display= "none")
-        .then(getScores())
-        .then(document.getElementById("scoresList").style.display="block")
-        .catch(err=>console.log(err))
-    }
-
-    return(
+  return (
     <>
-        <h1>Thanks for playing!</h1>
-        <h3>Your Score Was {props.score}</h3>
-        <form id="scoreForm">
-            <input type="text" name="userName" placeholder="enter your name" onChange={handleInputChange}></input>
-            <button onClick= {saveScore}>Submit</button>
-        </form>
-        <ol id= "scoresList" style= {{display: "none"}}>
-            {allScores.map(data => (
-               data.userName===totals.userName?
-                <li><b>{data.userName} - {data.score}</b></li>
-                :
-                <li>{data.userName} - {data.score}</li>
-            ))}
-        </ol>
-        <button onClick = {props.restartGame}>Play Again</button>
+      <h1>Thanks for playing!</h1>
+      <h3>Your Score Was {props.score}</h3>
+      <form id="scoreForm">
+        <input
+          type="text"
+          name="userName"
+          placeholder="enter your name"
+          onChange={handleInputChange}
+        ></input>
+        <button onClick={saveScore}>Submit</button>
+      </form>
+      <table
+        id="scoresList"
+        class="table table-dark col-10"
+        style={{ display: "none" }}
+      >
+        <thead>
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Name</th>
+            <th scope="col">Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {allScores.map((data, index) =>
+            data.userName === totals.userName && data.score === totals.score ? (
+              <tr className="table-success">
+                <th className="table-success" scope="row">
+                  {index + 1}
+                </th>
+                <td className="table-success">{data.userName}</td>
+                <td className="table-success">{data.score}</td>
+              </tr>
+            ) : (
+              <tr>
+                <th scope="row">{index + 1}</th>
+                <td>{data.userName}</td>
+                <td>{data.score}</td>
+              </tr>
+            )
+          )}
+        </tbody>
+      </table>
+      <button onClick={props.restartGame}>Play Again</button>
     </>
-    )
+  );
 }
 
-export default GameOver
+export default GameOver;
