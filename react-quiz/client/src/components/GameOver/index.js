@@ -32,6 +32,7 @@ function GameOver(props) {
     event.preventDefault();
     console.log(totals);
     API.logScore(totals)
+        .then(res => setTotals(res.data))
       .then((document.getElementById("scoreForm").style.display = "none"))
       .then(getScores())
       .then((document.getElementById("scoresList").style.display = "table"))
@@ -51,11 +52,12 @@ function GameOver(props) {
         ></input>
         <button onClick={saveScore}>Submit</button>
       </form>
+      <div className="row justify-content-center">
       <table
         id="scoresList"
-        class="table table-dark col-10"
+        className="table table-dark col-10"
         style={{ display: "none" }}
-      >
+        >
         <thead>
           <tr>
             <th scope="col">Rank</th>
@@ -65,8 +67,8 @@ function GameOver(props) {
         </thead>
         <tbody>
           {allScores.map((data, index) =>
-            data.userName === totals.userName && data.score === totals.score ? (
-              <tr className="table-success">
+            data._id === totals._id && data.score === totals.score ? (
+                <tr className="table-success">
                 <th className="table-success" scope="row">
                   {index + 1}
                 </th>
@@ -74,15 +76,16 @@ function GameOver(props) {
                 <td className="table-success">{data.score}</td>
               </tr>
             ) : (
-              <tr>
+                <tr>
                 <th scope="row">{index + 1}</th>
                 <td>{data.userName}</td>
                 <td>{data.score}</td>
               </tr>
             )
-          )}
+            )}
         </tbody>
       </table>
+    </div>
       <button onClick={props.restartGame}>Play Again</button>
     </>
   );
