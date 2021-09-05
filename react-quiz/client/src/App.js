@@ -38,7 +38,7 @@ const handleBtnClick = (e) => {
   if(nextIndex >= quiz.length -1){
     setGameOver("over")
   }
-
+  e.target.blur()
   setQuestion(quiz[nextIndex])
 }
 
@@ -56,7 +56,11 @@ const restartGame = () => {
     <div>
       <Timer setGameOver = {setGameOver} setTime = {setTime} time = {time}/>
       <Score score = {score}/>
-      <Quiz handleBtnClick = {handleBtnClick} question = {question} />
+      <div className="row justify-content-center">
+        <div className="col-8 align-items-center">
+        <Quiz handleBtnClick = {handleBtnClick} question = {question} />
+        </div>
+      </div>
     </div>
   );
   }
@@ -66,7 +70,9 @@ const restartGame = () => {
     )
   } else {
     return(
-      <button onClick = {restartGame}>Play Game</button>
+      <div className="row justify-content-center">
+      <button className= "btn btn-success " onClick = {restartGame}>Play Game</button>
+      </div>
     )
   }
 }

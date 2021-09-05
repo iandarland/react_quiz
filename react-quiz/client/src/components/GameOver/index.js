@@ -1,4 +1,3 @@
-import { get } from "mongoose";
 import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 
@@ -86,7 +85,7 @@ function GameOver(props) {
         </tbody>
       </table>
     </div>
-      <button onClick={props.restartGame}>Play Again</button>
+      <button className = "btn btn-success" onClick={props.restartGame}>Play Again</button>
     </>
   );
 }

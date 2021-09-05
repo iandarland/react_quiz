@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./style.css"
 
 function Quiz(props) {
   const [answers, setAnswers] = useState([]);
@@ -31,7 +32,7 @@ function Quiz(props) {
         <div className="text-center">
           {answers.map((answer) => (
             <button
-              className="btn btn-success"
+              className="btn btn-success ans-btn"
               value={answer}
               onClick={props.handleBtnClick}
             >
