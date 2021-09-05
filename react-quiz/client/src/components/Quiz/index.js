@@ -24,7 +24,7 @@ function Quiz(props) {
   }
 
   return (
-    <div className="quiz-wrap justify-content-center">
+    <div className="quiz-wrap align-items-center justify-content-center">
       <div className= "quiz-content">
         <div className="text-center">
           <img src={props.question.img} />

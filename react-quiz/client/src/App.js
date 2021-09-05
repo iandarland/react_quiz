@@ -57,7 +57,7 @@ const restartGame = () => {
       <Timer setGameOver = {setGameOver} setTime = {setTime} time = {time}/>
       <Score score = {score}/>
       <div className="row justify-content-center">
-        <div className="col-8 align-items-center">
+        <div className="align-items-center">
         <Quiz handleBtnClick = {handleBtnClick} question = {question} />
         </div>
       </div>
