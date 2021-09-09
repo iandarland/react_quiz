@@ -16,7 +16,7 @@ function Score (props){
 
     return(
         <div>
-            <h1>score: <span id = "score">{props.score}</span></h1>
+            <h3>score: <span id = "score">{props.score}</span></h3>
         </div>
     )
 }

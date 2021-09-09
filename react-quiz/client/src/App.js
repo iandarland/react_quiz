@@ -53,12 +53,16 @@ const restartGame = () => {
   if(gameOver === "play"){
 
   return (
-    <div>
-      <Timer setGameOver = {setGameOver} setTime = {setTime} time = {time}/>
-      <Score score = {score}/>
+    <div className="game-wrapper">
+      <div className="d-flex justify-content-center">
+        <div className="col-10 row d-flex justify-content-between">
+          <Timer setGameOver = {setGameOver} setTime = {setTime} time = {time}/>
+          <Score score = {score}/>
+        </div>
+      </div>
       <div className="row justify-content-center">
-        <div className="align-items-center">
-        <Quiz handleBtnClick = {handleBtnClick} question = {question} />
+        <div className="">
+          <Quiz handleBtnClick = {handleBtnClick} question = {question} />
         </div>
       </div>
     </div>
@@ -70,8 +74,10 @@ const restartGame = () => {
     )
   } else {
     return(
-      <div className="row justify-content-center">
-      <button className= "btn btn-success " onClick = {restartGame}>Play Game</button>
+      <div className="game-wrapper d-flex align-items-center justify-content-center">
+        <div className="row justify-content-center">
+          <button className= "btn btn-success " onClick = {restartGame}>Play Game</button>
+        </div>
       </div>
     )
   }
